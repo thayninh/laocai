@@ -2,11 +2,24 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
+
 import TabBarIcon from '../components/TabBarIcon';
 import WeatherScreen from '../screens/WeatherScreen';
 import StationScreen from '../screens/StationScreen';
 import WarningScreen from '../screens/WarningScreen';
 import ContactScreen from '../screens/ContactScreen';
+
+import DetailMessageScreen from '../screens/DetailMessageScreen';
+
+/**
+const DetailStack = createStackNavigator({
+  Detail: DetailMessageScreen,
+});
+
+DetailStack.navigationOptions = {
+  tabBarLabel: 'Thông tin chi tiết',
+};
+*/
 
 const WeatherStack = createStackNavigator({
   Weather: WeatherScreen,
@@ -42,6 +55,7 @@ StationStack.navigationOptions = {
 
 const WarningStack = createStackNavigator({
   Warning: WarningScreen,
+  DetailWarning: DetailMessageScreen,
 });
 
 WarningStack.navigationOptions = {
@@ -68,10 +82,10 @@ ContactStack.navigationOptions = {
   ),
 };
 
+
 export default createBottomTabNavigator({
   StationStack,
   WeatherStack,
-  
   WarningStack,
   ContactStack,
 });
